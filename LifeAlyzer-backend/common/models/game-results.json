@@ -1,0 +1,30 @@
+{
+  "name": "GameResults",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "totalGames": {
+      "type": "number",
+      "required": true
+    },
+    "winNumber": {
+      "type": "number",
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "createDate": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
