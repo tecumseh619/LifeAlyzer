@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
+import { InfoPage } from '../info/info';
+import { HistoryPage } from '../history/history';
+import { LandingPage } from '../landing/landing';
+
+import { AppUsersProvider } from '../../providers/app-users/app-users';
 /**
  * Generated class for the LobbyPage page.
  *
@@ -14,11 +20,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LobbyPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public appUsers: AppUsersProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LobbyPage');
+  }
+
+  startGame(){
+      this.navCtrl.push(InfoPage);
+  }
+  
+  lookHistory(){
+    this.navCtrl.push(HistoryPage);
+    }
+
+  logout(){
+      this.appUsers.logout(window.localStorage.getItem("token"))
+      .map(res => res.json())
+      .subscribe(res => {
+        this.navCtrl.setRoot(LandingPage);
+      }, error => {
+        alert("Uh oh " + error + ". :(")
+      }); 
   }
 
 }

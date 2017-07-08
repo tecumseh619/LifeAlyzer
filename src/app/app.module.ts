@@ -14,6 +14,10 @@ import { RegisterPage } from '../pages/register/register';
 import { LandingPage } from '../pages/landing/landing';
 import { InfoPage } from '../pages/info/info';
 
+import { AppUsersProvider } from '../providers/app-users/app-users';
+import { MtgInfoProvider } from '../providers/mtg-info/mtg-info';
+import { GameResultsProvider } from '../providers/game-results/game-results';
+
 let injections: any[]=[
   MyApp,
   LobbyPage,
@@ -41,7 +45,10 @@ let injections: any[]=[
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppUsersProvider,
+    GameResultsProvider,
+    MtgInfoProvider
   ]
 })
 export class AppModule {}

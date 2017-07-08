@@ -5,14 +5,24 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>LobbyPage</ion-title>
+  
+  <ion-navbar color="primary" text-center>
+    <ion-title>Lobby</ion-title>
+    <ion-buttons end side="primary">
+      <button ion-button icon-only (click) ="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <button ion-button class="button-block" (click)="startGame()">
+    Start Game
+  </button>
+  <button ion-button class="button-block" (click)="lookHistory()">
+    My History
+  </button>
 </ion-content>

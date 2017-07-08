@@ -10,7 +10,7 @@ import { CalculatorPage } from '../pages/calculator/calculator';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CalculatorPage;
+  rootPage:any = LandingPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

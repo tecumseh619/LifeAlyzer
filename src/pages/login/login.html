@@ -14,5 +14,17 @@
 
 
 <ion-content padding>
-
+  <form #logForm="ngForm" (ngSubmit)="loginForm(logForm)" novalidate>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input name="email" type="email" placeholder="john@doe.com" [(ngModel)]="user.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="user.password" required></ion-input>
+      </ion-item>
+      <button ion-button type="submit" class="button-block">
+        Login
+      </button>
+    </form>
 </ion-content>

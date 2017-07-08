@@ -6,13 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>InfoPage</ion-title>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Information</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form #inForm="ngForm" (ngSubmit)="infoForm(inForm)" novalidate>
+    <ion-item>
+      <ion-label>Opponent's Name</ion-label>
+      <ion-input name="Opponent's Name" type="text" placeholder="Johnny Boy" [(ngModel)]="form.OpponentsName" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Opponent's Deck</ion-label>
+      <ion-input name="Opponent's Deck" type="text" placeholder="Elf" [(ngModel)]="form.OpponentsDeck" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Your Deck</ion-label>
+      <ion-input name="Your Deck" type="text" placeholder="Zombie" [(ngModel)]="form.YourDeck" required></ion-input>
+    </ion-item>
+    <button ion-button type="submit" class="button-block">
+      Onwards
+    </button>
+  </form>
 
 </ion-content>
