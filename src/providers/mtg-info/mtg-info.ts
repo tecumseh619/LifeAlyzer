@@ -29,7 +29,7 @@ export class MtgInfoProvider {
   getInfo(token){
     console.log(token)
     return this.http.get(
-      this.baseUrl + this.path + '?access_token' + token + '&filter[where]userId]=' + window.localStorage.getItem('userId')
+      this.baseUrl + this.path + '?access_token=' + token + '&filter[where][userId]=' + window.localStorage.getItem('userId')
     );
   }
 

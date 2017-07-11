@@ -42,6 +42,7 @@ export class LobbyPage {
       this.appUsers.logout(window.localStorage.getItem("token"))
       .map(res => res.json())
       .subscribe(res => {
+        window.localStorage.clear();
         this.navCtrl.setRoot(LandingPage);
       }, error => {
         alert("Uh oh " + error + ". :(")

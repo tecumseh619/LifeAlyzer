@@ -13,6 +13,7 @@ import { CalculatorPage } from '../pages/calculator/calculator';
 import { RegisterPage } from '../pages/register/register';
 import { LandingPage } from '../pages/landing/landing';
 import { InfoPage } from '../pages/info/info';
+import { ResultsPage } from '../pages/results/results';
 
 import { AppUsersProvider } from '../providers/app-users/app-users';
 import { MtgInfoProvider } from '../providers/mtg-info/mtg-info';
@@ -26,7 +27,8 @@ let injections: any[]=[
   LandingPage,
   LoginPage,
   RegisterPage,
-  InfoPage
+  InfoPage,
+  ResultsPage
   ]
 
 @NgModule({

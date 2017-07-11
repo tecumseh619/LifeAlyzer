@@ -14,6 +14,9 @@
 
 
 <ion-content padding>
+<!--  <button ion-button class="button-block" (click)="toLobby()">-->
+<!--  History-->
+<!--</button>-->
   <div class="life-counters" *ngFor="let life of lifes">
     <ion-icon name="remove-circle" (click)="subtractPoints(life)">
       {{life.points}}

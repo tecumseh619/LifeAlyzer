@@ -14,7 +14,7 @@ import { CalculatorPage } from '../calculator/calculator';
   templateUrl: 'info.html',
 })
 export class InfoPage {
-form: any = {}
+  form: any = {};
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -23,6 +23,7 @@ form: any = {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InfoPage');
+    this.form = {}
   }
   
   infoForm(form) {
@@ -30,17 +31,31 @@ form: any = {}
     if(form.invalid) {
       return alert("Please fill out all of the required fields.");
     }
-    
-    this.mtgInfo.saveInfo(window.localStorage.getItem("token"), this.form)
-      .map(res => res.json())
-      .subscribe(res => {
-        window.localStorage.setItem('token', res.token);
-        window.localStorage.setItem('userId', res.id);
-        this.navCtrl.push(CalculatorPage);
-      }, error => {
-        alert("Uh oh " + error + ". :(")
-      }); 
+
+  this.form.createDate = new Date().toISOString();
+  this.form.userId = window.localStorage.getItem("userId");
+  this.mtgInfo.saveInfo(window.localStorage.getItem("token"), this.form)
+    .map(res=>res.json())
+    .subscribe(res=>{
+      this.navCtrl.setRoot(CalculatorPage, {
+        info: this.form,
+        showHome: true
+      });
+      //window.localStorage.setItem('token', res.token);
+      //window.localStorage.setItem('userId', res.id);
+    }, error=>{
+      return alert ("Uh oh looks like " + error + " just happened.")
+    });
   }
-    
-    
+ 
+   //   this.mtgInfo.saveInfo(window.localStorage.getItem("token"), this.form)
+  //     .map(res => res.json())
+  //     .subscribe(res => {
+  //       window.localStorage.setItem('token', res.token);
+  //       window.localStorage.setItem('userId', res.id);
+  //       this.navCtrl.push(CalculatorPage);
+  //     }, error => {
+  //       alert("Uh oh " + error + ". :(")
+  //     }); 
+  // }   
 }

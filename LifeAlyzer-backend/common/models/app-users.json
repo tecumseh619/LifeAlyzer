@@ -16,7 +16,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "MTGInfo": {
+      "type": "hasMany",
+      "model": "MTGInfo",
+      "foreignKey": "userId"
+    },
+    "GameResults": {
+      "type": "hasMany",
+      "model": "GameResults",
+      "foreignKey": "userId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
